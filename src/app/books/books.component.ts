@@ -15,9 +15,4 @@ export class BooksComponent implements OnInit {
   }
 
   books: Book[] = [];
-
-  cart: Book[] = [];
-  addToCart(event: Book) {
-    this.cart.push(event);
-  }
 }
