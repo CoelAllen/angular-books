@@ -1,11 +1,5 @@
 import { Component } from '@angular/core';
-
-interface Book {
-  name: string;
-  author: string;
-  image: string;
-  amount: number;
-}
+import { Book } from '../types/Book';
 
 @Component({
   selector: 'app-books',
@@ -54,4 +48,6 @@ export class BooksComponent {
       amount: 14.95,
     },
   ];
+
+  cart: Book[] = [];
 }

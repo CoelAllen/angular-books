@@ -1,0 +1,29 @@
+li {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  text-align: center;
+  align-items: center;
+  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.219);
+  border-radius: 5px;
+  height: 40vh;
+  padding-block: 0.75rem;
+}
+img {
+  width: 10vw;
+  cursor: pointer;
+}
+
+.title {
+  margin-block: 0.5rem;
+  font-size: larger;
+  font-weight: 500;
+}
+.author {
+  margin-block: 0.5rem;
+}
+.price {
+  font-size: larger;
+  font-weight: 600;
+  margin-top: 0.5rem;
+}
