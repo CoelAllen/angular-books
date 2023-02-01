@@ -1,11 +1,14 @@
 <h2>Programming Books List</h2>
-<ul>
-  <li>
-    <img src="{{ src }}" alt="{{ name }}" width="100" />
-    {{ name }} by {{ author }}
-  </li>
-  <li>
-    <img src="{{ src2 }}" alt="{{ name2 }}" width="100" />
-    {{ name2 }} by {{ author2 }}
-  </li>
+
+<ul *ngIf="isShowing">
+  <ng-container *ngFor="let book of books; let i = index">
+    <li>
+      <img [src]="book.image" [alt]="book.name" />
+      <p class="title">
+        {{ book.name | titlecase }}
+      </p>
+      <p class="author">by {{ book.author | titlecase }}</p>
+      <p class="price">{{ book.amount | currency }}</p>
+    </li>
+  </ng-container>
 </ul>
