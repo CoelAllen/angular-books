@@ -50,4 +50,7 @@ export class BooksComponent {
   ];
 
   cart: Book[] = [];
+  addToCart(event: Book) {
+    this.cart.push(event);
+  }
 }

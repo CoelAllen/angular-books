@@ -1,7 +1,8 @@
-<h2>Programming Books List</h2>
+<h1>Programming Books List</h1>
+<h3> Shopping Cart {{cart.length}}</h3> 
 
 <ul>
   <ng-container *ngFor="let singleBook of books; let i = index">
-    <app-book [book]="singleBook"/>
+    <app-book (emitBook)="addToCart($event)" [book]="singleBook"/>
   </ng-container>
 </ul>
