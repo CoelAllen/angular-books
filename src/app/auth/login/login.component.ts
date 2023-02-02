@@ -12,17 +12,23 @@ export class LoginComponent {
     email: '',
     password: '',
   };
+  isLoading: boolean = false;
   submit() {
+    if (this.isLoading) return;
+    this.isLoading = true;
     const auth = getAuth();
     signInWithEmailAndPassword(auth, this.form.email, this.form.password)
       .then((userCredential) => {
         // Signed in
         const user = userCredential.user;
+        alert('Login successful');
         // ...
       })
       .catch((error) => {
         const errorCode = error.code;
         const errorMessage = error.message;
-      });
+        alert('Credentials do not match our records');
+      })
+      .finally(() => (this.isLoading = false));
   }
 }

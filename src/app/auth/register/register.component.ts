@@ -13,8 +13,11 @@ export class RegisterComponent {
     password: '',
     confirm: '',
   };
+  isLoading: boolean = false;
   passwordMatched: boolean = true;
   submit() {
+    if (this.isLoading) return;
+    this.isLoading = true;
     if (this.form.password != this.form.confirm) {
       this.passwordMatched = false;
       return;
@@ -28,6 +31,7 @@ export class RegisterComponent {
         const errorCode = error.code;
         const errorMessage = error.message;
         // ..
-      });
+      })
+      .finally(() => (this.isLoading = false));
   }
 }
