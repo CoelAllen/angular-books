@@ -1,8 +1,9 @@
 ul {
   display: grid;
-  grid-template-columns: 20vw 20vw 20vw 20vw;
-  gap: 2rem;
+  grid-template-columns: 45vw 45vw;
+  gap: 4rem;
   margin: auto;
   padding-left: 0;
   justify-content: center;
+  margin-top: 2rem;
 }

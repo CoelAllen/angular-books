@@ -1,9 +1,12 @@
-<nav class="flex justify-between p-4 bg-purple-900 text-white">
+<nav class="flex justify-between p-4 bg-purple-700 text-white bg-gradient-to-r from-purple-600 to-purple-900">
+  <a routerLink="/">Coel's Coding Codex</a>
   <div>
-    <h1>BooksShop</h1>
-  </div>
-  <div>
-    <button>My Cart</button>
+    <a class="m-2 border p-2 rounded-xl cursor-pointer" routerLink="/login">Login</a>
+    <a class="m-2 border p-2 rounded-xl cursor-pointer" routerLink="/register">Register</a>
+    <a class="m-2 border p-2 rounded-xl cursor-pointer" routerLink="/cart">Codex Cart</a>
   </div>
 </nav>
-<router-outlet />
+<div class="p-2 m-3">
+
+  <router-outlet />
+</div>

@@ -1,17 +1,20 @@
 li {
   display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  text-align: center;
+  flex-direction: row;
+  justify-content: space-evenly;
   align-items: center;
   box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.219);
   border-radius: 5px;
-  height: 40vh;
-  padding-block: 0.75rem;
+  padding-block: 2rem;
 }
 img {
-  width: 10vw;
   cursor: pointer;
+  height: 20vh;
+}
+.info {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .title {
@@ -25,5 +28,15 @@ img {
 .price {
   font-size: larger;
   font-weight: 600;
-  margin-top: 0.5rem;
+  margin-block: 0.5rem;
+}
+.cart {
+  padding-inline: 0.5rem;
+  padding-block: 0.5rem;
+  background-color: darkgoldenrod;
+  box-shadow: 5px 6px 5px rgb(139, 102, 8);
+}
+.cart:active {
+  transform: scale(0.98);
+  box-shadow: 2px 3px 3px rgb(139, 102, 8);
 }
