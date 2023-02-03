@@ -2,14 +2,14 @@
   <a routerLink="/">Coel's Coding Codex</a>
   <div>
     <ng-container *ngIf="isAuthenticated()">
-      <a class="mx-4 border p-2 rounded-xl cursor-pointer" routerLink="/cart">Codex Cart</a>
+      <a class="mx-4 p-2 rounded-xl cursor-pointer" routerLink="/cart">Codex Cart</a>
     </ng-container>
     <ng-container *ngIf="!isAuthenticated()">
-      <a class="mx-4 border p-2 rounded-xl cursor-pointer" routerLink="/login">Login</a>
-      <a class="mx-4 border p-2 rounded-xl cursor-pointer" routerLink="/register">Register</a>
+      <a class="mx-4 p-2 rounded-xl cursor-pointer" routerLink="/register">Register</a>
+      <a class="mx-4 p-2 rounded-xl cursor-pointer" routerLink="/login">Login</a>
     </ng-container>
     <ng-container *ngIf="isAuthenticated()">
-      <a (click)="logout()" class="mx-4 border p-2 rounded-xl cursor-pointer">Logout</a>
+      <button (click)="logout()" class="mx-4 rounded-xl cursor-pointer">Logout</button>
     </ng-container>
   </div>
 </nav>

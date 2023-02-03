@@ -1,8 +1,10 @@
 import { Injectable } from '@angular/core';
+import { Router } from '@angular/router';
 import {
   createUserWithEmailAndPassword,
   getAuth,
   signInWithEmailAndPassword,
+  signOut,
 } from 'firebase/auth';
 import { LoginForm, Register } from '../types/Auth';
 
@@ -14,16 +16,18 @@ export class AuthService {
   isLoading: boolean = false;
   passwordMatched: boolean = true;
 
+  constructor(private router: Router) {}
+
   login(form: LoginForm) {
     if (this.isLoading) return;
     this.isLoading = true;
+    this.router.navigate(['']);
     const auth = getAuth();
     signInWithEmailAndPassword(auth, form.email, form.password)
       .then((userCredential) => {
         // Signed in
         const user = userCredential.user;
         this.isAuthenticated = true;
-        alert('Login successful');
       })
       .catch((error) => {
         this.isAuthenticated = false;
@@ -41,9 +45,11 @@ export class AuthService {
       this.passwordMatched = false;
       return;
     }
+    this.router.navigate(['']);
     const auth = getAuth();
     createUserWithEmailAndPassword(auth, form.email, form.password)
       .then((userCredential) => {
+        const user = userCredential.user;
         this.isAuthenticated = true;
       })
       .catch((error) => {
@@ -54,5 +60,15 @@ export class AuthService {
       })
       .finally(() => (this.isLoading = false));
   }
-  logout() {}
+  logout() {
+    const auth = getAuth();
+    signOut(auth)
+      .then(() => {
+        this.router.navigate(['login']);
+        this.isAuthenticated = false;
+      })
+      .catch((error) => {
+        console.log(error, 'sign-out error');
+      });
+  }
 }

@@ -1,7 +1,18 @@
 <h2>Your Cart:</h2>
 <div *ngIf="getCart().length > 0">
   <div *ngFor="let book of getCart()">
-    {{ book.name | titlecase }}
+    <div class="flex w-100 m-5">
+      <img [src]="book.image" [alt]="book.name" />
+      <div class="info w-1/2">
+        <p class="title mb-10">
+          {{ book.name | titlecase }}
+        </p>
+        <p class="author mb-10">by {{ book.author | titlecase }}</p>
+        <p class="price">{{ book.amount | currency }}</p>
+      </div>
+    </div>
   </div>
 </div>
-<div *ngIf="getCart().length == 0">There are no books in your cart</div>
+<div *ngIf="getCart().length == 0" class="mt-10 text-2xl">
+  There are no books in your cart
+</div>

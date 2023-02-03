@@ -13,9 +13,11 @@ export class AppComponent implements OnInit {
     initializeApp(firebaseConfig);
   }
   constructor(private authService: AuthService) {}
+
   isAuthenticated() {
     return this.authService.isAuthenticated;
   }
+
   logout() {
     this.authService.logout;
   }

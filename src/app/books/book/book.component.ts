@@ -1,4 +1,5 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
+import { AuthService } from 'src/app/services/auth.service';
 import { CartService } from 'src/app/services/cart.service';
 import { Book } from '../../types/Book';
 
@@ -11,7 +12,10 @@ export class BookComponent {
   @Input() book: Book = {} as Book;
   isInCart: boolean = false;
 
-  constructor(private cartService: CartService) {}
+  constructor(
+    private cartService: CartService,
+    private authService: AuthService
+  ) {}
 
   addToCart() {
     this.cartService.add(this.book);
@@ -20,5 +24,8 @@ export class BookComponent {
   removeFromCart() {
     this.cartService.remove(this.book);
     this.isInCart = false;
+  }
+  isAuthenticated() {
+    return this.authService.isAuthenticated;
   }
 }
