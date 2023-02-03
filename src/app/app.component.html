@@ -1,9 +1,16 @@
 <nav class="flex justify-between p-4 bg-purple-700 text-white bg-gradient-to-r from-purple-600 to-purple-900">
   <a routerLink="/">Coel's Coding Codex</a>
   <div>
-    <a class="m-2 border p-2 rounded-xl cursor-pointer" routerLink="/login">Login</a>
-    <a class="m-2 border p-2 rounded-xl cursor-pointer" routerLink="/register">Register</a>
-    <a class="m-2 border p-2 rounded-xl cursor-pointer" routerLink="/cart">Codex Cart</a>
+    <ng-container *ngIf="isAuthenticated()">
+      <a class="mx-4 border p-2 rounded-xl cursor-pointer" routerLink="/cart">Codex Cart</a>
+    </ng-container>
+    <ng-container *ngIf="!isAuthenticated()">
+      <a class="mx-4 border p-2 rounded-xl cursor-pointer" routerLink="/login">Login</a>
+      <a class="mx-4 border p-2 rounded-xl cursor-pointer" routerLink="/register">Register</a>
+    </ng-container>
+    <ng-container *ngIf="isAuthenticated()">
+      <a (click)="logout()" class="mx-4 border p-2 rounded-xl cursor-pointer">Logout</a>
+    </ng-container>
   </div>
 </nav>
 <div class="p-2 m-3">
