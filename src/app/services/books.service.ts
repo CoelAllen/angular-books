@@ -1,5 +1,7 @@
 import { HttpClient } from '@angular/common/http';
-import { Injectable } from '@angular/core';
+import { Injectable, OnInit } from '@angular/core';
+import { Book } from '../types/Book';
+import { NewBook } from '../types/NewBook';
 
 @Injectable()
 export class BooksService {
@@ -8,8 +10,11 @@ export class BooksService {
   public url: string =
     'https://www.googleapis.com/books/v1/volumes?q=programming';
 
-  public postJsonValue: any;
   public getJsonValue: any;
+
+  public stuff: any;
+  books: Book[] = [];
+  public newBooks: NewBook[] = [];
 
   // getBooks() {
   //   return [
@@ -41,11 +46,4 @@ export class BooksService {
   //     },
   //   ];
   // }
-  public getBooks() {
-    this.http.get(this.url).subscribe((res) => {
-      this.getJsonValue = res;
-      this.getJsonValue = this.getJsonValue.items;
-      console.log(this.getJsonValue, 'service');
-    });
-  }
 }

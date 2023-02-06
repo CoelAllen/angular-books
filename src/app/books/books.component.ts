@@ -14,16 +14,14 @@ export class BooksComponent implements OnInit {
   public url: string =
     'https://www.googleapis.com/books/v1/volumes?q=programming';
 
-  public postJsonValue: any;
   public getJsonValue: any;
   public stuff: any;
 
   ngOnInit(): void {
     this.getBooks();
   }
-
   public getBooks() {
-    this.http.get(this.url).subscribe((res) => {
+    this.http.get(this.booksService.url).subscribe((res) => {
       this.getJsonValue = res;
       this.books = this.getJsonValue.items;
       console.log(this.books, 'service');
@@ -34,6 +32,6 @@ export class BooksComponent implements OnInit {
       });
     });
   }
+
   books: Book[] = [];
-  newBooks: NewBook[] = [];
 }
