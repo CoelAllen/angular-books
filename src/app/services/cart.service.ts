@@ -1,17 +1,17 @@
 import { Injectable } from '@angular/core';
-import { Book } from '../types/Book';
+import { NewBook } from '../types/NewBook';
 
 @Injectable({
   providedIn: 'root',
 })
 export class CartService {
-  cart: Book[] = [];
+  cart: NewBook[] = [];
   constructor() {}
 
-  add(book: Book) {
+  add(book: NewBook) {
     this.cart.push(book);
   }
-  remove(book: Book) {
+  remove(book: NewBook) {
     // this.cart = this.cart.filter((b) => b.name != book.name);
   }
   get() {

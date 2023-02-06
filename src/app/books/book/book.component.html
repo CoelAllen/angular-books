@@ -9,7 +9,7 @@
       {{ book.averageRating }} average out of {{ book.ratingsCount }}
       {{ book.ratingsCount == 1 ? "rating" : "ratings" }}
     </p>
-    <!-- <ng-container *ngIf="isAuthenticated()">
+    <ng-container *ngIf="isAuthenticated()">
       <button *ngIf="!isInCart" (click)="addToCart()" class="cart rounded-xl">
         Add to Cart
       </button>
@@ -20,6 +20,6 @@
       >
         Remove from Cart
       </button>
-    </ng-container> -->
+    </ng-container>
   </div>
 </li>
