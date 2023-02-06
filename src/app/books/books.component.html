@@ -1,5 +1,9 @@
 <h1 class="text-2xl font-bold ml-5">Programming Books List:</h1>
+
 <ul>
+  <ng-container *ngIf="!stuff">
+    Loading...
+  </ng-container>
   <ng-container *ngFor="let singleBook of stuff; let i = index">
     <app-book  [book]="singleBook"/>
   </ng-container>
