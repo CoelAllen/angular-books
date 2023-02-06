@@ -1,7 +1,7 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { AuthService } from 'src/app/services/auth.service';
 import { CartService } from 'src/app/services/cart.service';
-import { Book } from '../../types/Book';
+import { NewBook } from 'src/app/types/NewBook';
 
 @Component({
   selector: 'app-book',
@@ -9,7 +9,7 @@ import { Book } from '../../types/Book';
   styleUrls: ['./book.component.css'],
 })
 export class BookComponent {
-  @Input() book: Book = {} as Book;
+  @Input() book: NewBook = {} as NewBook;
   isInCart: boolean = false;
 
   constructor(
@@ -17,14 +17,14 @@ export class BookComponent {
     private authService: AuthService
   ) {}
 
-  addToCart() {
-    this.cartService.add(this.book);
-    this.isInCart = true;
-  }
-  removeFromCart() {
-    this.cartService.remove(this.book);
-    this.isInCart = false;
-  }
+  // addToCart() {
+  //   this.cartService.add(this.book);
+  //   this.isInCart = true;
+  // }
+  // removeFromCart() {
+  //   this.cartService.remove(this.book);
+  //   this.isInCart = false;
+  // }
   isAuthenticated() {
     return this.authService.isAuthenticated;
   }
