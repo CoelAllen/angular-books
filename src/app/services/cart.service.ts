@@ -12,7 +12,7 @@ export class CartService {
     this.cart.push(book);
   }
   remove(book: Book) {
-    this.cart = this.cart.filter((b) => b.name != book.name);
+    // this.cart = this.cart.filter((b) => b.name != book.name);
   }
   get() {
     return this.cart;
