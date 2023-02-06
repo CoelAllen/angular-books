@@ -1,5 +1,6 @@
 li {
   display: flex;
+  height: 30vh;
   flex-direction: row;
   justify-content: space-evenly;
   align-items: center;

@@ -1,18 +1,17 @@
-<!-- <h2>Your Cart:</h2>
+<h2>Your Cart:</h2>
 <div *ngIf="getCart().length > 0">
   <div *ngFor="let book of getCart()">
     <div class="flex w-100 m-5">
-      <img [src]="book.volumeInfo.imageLinks.thumbnail" [alt]="book.volumeInfo.title" />
-      <div class="info w-1/2">
-        <p class="title mb-10">
-          {{ book.volumeInfo.title | titlecase }}
+      <img [src]="book.imageLinks.thumbnail" [alt]="book.title" />
+      <div class="info w-3/4">
+        <p class="title mb-10 ms-5">
+          {{ book.title | titlecase }}
         </p>
-        <p class="author mb-10">by {{ book.volumeInfo.author | titlecase }}</p>
-        <p class="price">{{ book.amount | currency }}</p>
+        <p class="author mb-10">by {{ book.authors[0] | titlecase }}</p>
       </div>
     </div>
   </div>
 </div>
 <div *ngIf="getCart().length == 0" class="mt-10 text-2xl">
   There are no books in your cart
-</div> -->
+</div>
